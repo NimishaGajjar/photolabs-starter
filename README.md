@@ -20,7 +20,7 @@ Using a cloned starter repo, PhotoLabs has been constructed using NODE with CSS/
 
 ## Pictures and Demo Video
 
-![Animation of PhotoLabs App](./docs/photolabs_animation.gif.mp4)
+![Animation of PhotoLabs App](./docs/photolabs_animation.mp4)
 
 <br>
 
