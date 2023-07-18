@@ -1,12 +1,32 @@
 import React from 'react';
-
+import PhotoListItem from './PhotoListItem';
 import '../styles/PhotoList.scss';
 
-const PhotoList = () => {
-  <ul className="photo-list">
-    {/* Insert React */}
-  </ul>
-}
+const PhotoList = ({
+  photos,
+  favourites,
+  toggleFavourite,
+  onPhotoClick,
+  getSimilarPhotos
+}) => {
+
+  return (
+    <ul className="photo-list">
+      {photos.map((photo) => (
+        <PhotoListItem
+          key={photo.id}
+          id={photo.id}
+          favourites={favourites}
+          selected={favourites.includes(photo.id)}
+          toggleFavourite={() => toggleFavourite(photo.id)}
+          {...photo}
+          onPhotoClick={onPhotoClick}
+          getSimilarPhotos={getSimilarPhotos}
+        />
+      ))}
+    </ul>
+  );
+};
 
 PhotoList.defaultProps = {
   photos: [
@@ -61,7 +81,7 @@ PhotoList.defaultProps = {
         "profile": `${process.env.PUBLIC_URL}/profile-1.jpg`
       }
     }
-   ]
-}
+  ]
+};
 
-export default PhotoList
+export default PhotoList;

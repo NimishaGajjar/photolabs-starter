@@ -1,12 +1,24 @@
 import React from 'react';
+import '../styles/TopicList.scss';
+import TopicListItem from './TopicListItem';
 
-import './TopicList.scss';
+const TopicList = ({
+  topics,
+  fetchPhotosByTopic
+}) => {
 
-const TopicList = () => {
-  <div className="top-nav-bar__topic-list">
-    {/* Insert React */}
-  </div>
-}
+  return (
+    <ul className="top-nav-bar__topic-list">
+      {topics.map((topic) => (
+        <TopicListItem
+          key={topic.id} {...topic}
+          fetchPhotosByTopic={fetchPhotosByTopic}
+        />
+      ))}
+    </ul>
+  );
+};
+
 
 TopicList.defaultProps = {
   topics: [
@@ -14,7 +26,7 @@ TopicList.defaultProps = {
       "id": "1",
       "slug": "topic-1",
       "title": "Nature"
-    },  
+    },
     {
       "id": "2",
       "slug": "topic-2",
@@ -26,5 +38,5 @@ TopicList.defaultProps = {
       "title": "People"
     },
   ]
-}
-export default TopicList
+};
+export default TopicList;
